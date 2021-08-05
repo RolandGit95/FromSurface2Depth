@@ -1,0 +1,11 @@
+data_folder_regimeA: /data.bmp/heart/SimulationData/2020_3DExMedSurfaceToDepth/2021-04-18_STLSTM_paper/datasets/two_spirals/processed
+data_folder_regimeB: /data.bmp/heart/SimulationData/2020_3DExMedSurfaceToDepth/2021-04-18_STLSTM_paper/datasets/chaotic/processed
+
+data_folder_raw_regimeA: /data.bmp/heart/SimulationData/2020_3DExMedSurfaceToDepth/2021-04-18_STLSTM_paper/datasets/two_spirals/raw
+data_folder_raw_regimeB: /data.bmp/heart/SimulationData/2020_3DExMedSurfaceToDepth/2021-04-18_STLSTM_paper/datasets/chaotic/raw
+
+save_folder_models_regimeA: /data.bmp/heart/DataAnalysis/2020_3DExMedSurfaceToDepth/FromSurface2Depth/models/regimeA
+save_folder_models_regimeB: /data.bmp/heart/DataAnalysis/2020_3DExMedSurfaceToDepth/FromSurface2Depth/models/regimeB
+
+log_folder_regimeA: /data.bmp/heart/DataAnalysis/2020_3DExMedSurfaceToDepth/FromSurface2Depth/log/regimeA
+log_folder_regimeB: /data.bmp/heart/DataAnalysis/2020_3DExMedSurfaceToDepth/FromSurface2Depth/log/regimeB

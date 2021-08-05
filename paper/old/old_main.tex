@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{From Surface To Depth -- thinking the next step of the inverse problem of electrocardiography}
+\author{}
+\date{March 2021}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The inverse problem of electrocardiography (inverse ECG) describes the attempt to reconstruct the electrical signal on the heart surface based on electrocardiogram (ECG) measurements. This tasked is broadly studies \cite{many citations} and gets even more attention in recent years. However the ECG measurements are based on potential measurements and as a) potential is expected to be continuous and b) the heart is an active medium, the potential can be reconstructed to the heart surface but how to deal with the interactive heart medium remains unclear. Therefore we focus on this second part 'from the surface into the muscle' which is challenging because an appropriate model for (electrical) dynamics of the heart is an excitable medium. In this it is not clear per se, what information about the state in the depth can be obtained from the state on the surface.
+
+In this article we examine how deep we can 'look' into the heart based on surface information on 2 different sides on a cube, where the dynamics have been learned by neuronal networks.
+
+
+-> Ecg
+-> loss of information
+-> inverse ecg
+-> reconstruction techniques give surface activity
+-> from surface to inside muscle: excitable medium
+-> question: How can the 'inverse excitable medium' problem be tackled?
+(-> literature?)
+-> Machine learning via neuronal networks
+
+\section{Data}
+
+-> two parameter sets of barkley model
+-> Parameter sets used
+-> N initial conditions for both, example snapshots after transient
+-> some characterisation (periodic, see figure figPeriodic, chaotic as can be estimated from figure figchaotic)
+
+\section{Machine Learning}
+(Machine learning) experiment used. Parameter, model, references, explanation via a figure
+
+
+\section{Results}
+- Machine learning results: learning time, etc.
+- how deep can we look? (still needed: spatial correlation)
+
+
+\section{Conclusion}
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}

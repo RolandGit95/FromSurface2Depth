@@ -1,0 +1,29 @@
+# metadata for training on concentric dataset
+
+### Names ###
+project_name: FromSurface2Depth
+name: STLSTM_regimeA
+
+### Save and load dataset/weights etc. ###
+dataset: regimeA
+save_name: STLSTM
+
+
+### Model ###
+architecture: STLSTM
+hidden_size: 64
+
+### Training process ###
+lr: 0.0001
+batch_size: 4
+
+### Experiment-specific quantities ###
+epochs: 8
+time_steps: 0-31,1
+depths: 0-31,1
+num_datasets: 4
+
+### Config/Internet connection? Use live-logger via WandB or their offline mode for later synchronization ### 
+metadata: ../metadata.yaml
+offline: True
+

@@ -1,0 +1,10 @@
+# exclude data from source control by default
+data/raw
+data/processed
+programs
+media
+log/regimeA/wandb
+log/regimeB/wandb
+models/regimeA
+models/regimeB
+metadata_own.yaml
