@@ -1,0 +1,22 @@
+# Barkley parameter ---------------------------
+a: 0.6
+b: 0.01
+epsilon: 0.02
+alpha: 1
+
+# Simulation quanities ------------------------
+
+starting_condition: two_spirals # two_spirals, chaotic
+dt: 0.01
+ds: 0.1
+D: 0.02 
+size: [120,120,120] # Cube size
+
+# Save settings -------------------------------
+
+dSave: 16 # Sequence discretization for saving in [*ds]
+max_save_length: 512 # Sequence length
+num_sims: 1 # How many independent simulation with one call
+dataset: regimeA
+#save_folder: /home/roland/Projekte/FromSurface2Depth/data/raw/regimeA
+#save_folder: /data.bmp/stenger/FromSurface2Depth/data/spirals/raw
