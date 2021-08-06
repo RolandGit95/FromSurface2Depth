@@ -13,31 +13,30 @@ import matplotlib.pyplot as plt
 
 from omegaconf import OmegaConf
 # %%
-class Conv3D(nn.Module):
+class Conv2D(nn.Module):
     def __init__(self, input_length=32, output_length=32, name='3D Convolutional NN'):
-        super(Encoder, self).__init__()            
+        super(Conv2D, self).__init__()            
             
-        def get3DBlock(input_size, hidden_size, output_size):
+        def get2DBlock(input_size, hidden_size):
             block = nn.Sequential(
-                nn.Conv3d(input_size, hidden_size, 3, padding=(1,1)),
+                nn.Conv2d(input_size, hidden_size, 3, padding=(1,1)),
                 nn.ReLU(),
-                nn.BatchNorm3d(hidden_size)
+                nn.BatchNorm2d(hidden_size)
             )
             return block
         
-        self.b1 = get3DBlock(input_length, 256, 256)
-        self.b2 = get3DBlock(256, 256, 256)
-        self.b3 = get3DBlock(256, 256, 256)
-        self.b4 = get3DBlock(256, 256, 256)
-        self.b5 = get3DBlock(256, 256, 256)
-        self.b6 = get3DBlock(256, 256, 256)
-        self.b7 = get3DBlock(256, 256, 256)
-        self.b8 = get3DBlock(256, 256, 256)
-        self.last_block = nn.Sequential(
-        nn.Conv3d)
+        self.first = get2DBlock(input_length, 256)
+        self.middle = nn.Sequential(*[get2DBlock(256, 256) for _ in range(6)])
+        self.last = nn.Sequential(nn.Conv2d(256, output_length, 3, padding=(1,1)),
+                                  nn.Sigmoid())
+
         
     def forward(self, input):
-        return 0 #self.encoder(input) 
+        output = input[:,:,0]
+        output = self.first(output)
+        output = self.middle(output)
+        output = self.last(output)
+        return output
         
         
 class Encoder(nn.Module):

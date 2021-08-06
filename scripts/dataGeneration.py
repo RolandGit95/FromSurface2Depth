@@ -30,7 +30,7 @@
 # %%
 import sys, os
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 import yaml
 import argparse
@@ -39,7 +39,7 @@ import pprint
 sys.path.append('../simulation/')
 #from BarkleySimulation import BarkleySimluation3D
 
-from omegaconf import OmegaConf
+#from omegaconf import OmegaConf
 from scipy import ndimage
 
 

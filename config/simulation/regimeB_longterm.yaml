@@ -16,7 +16,7 @@ size: [120,120,120] # Cube size
 
 dSave: 16 # Sequence discretization for saving in [*ds]
 max_save_length: 512 # Sequence length
-num_sims: 1 # How many independent simulation with one call
+num_sims: 15 # How many independent simulation with one call
 dataset: regimeB
 #save_folder: /home/roland/Projekte/FromSurface2Depth/data/raw/regimeB
 #save_folder: /data.bmp/stenger/FromSurface2Depth/data/spirals/raw
