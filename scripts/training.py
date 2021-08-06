@@ -26,7 +26,7 @@
 #$ -o /home/stenger/smaxxhome/outputs
 
 # %%
-import os 
+import os, sys
 
 import torch
 import torch.nn as nn
@@ -45,9 +45,11 @@ import re
 
 import wandb
 
-from modules import STLSTM
-#from modules_new import Seq2Seq as STLSTM
-from datasets import BarkleyDataset
+working_path = os.path.join(os.path.dirname(os.getcwd()), '')
+sys.path.append(working_path)
+
+from src.modules import STLSTM, Conv2D
+from src.datasets import BarkleyDataset
 
 import argparse
 
@@ -63,8 +65,9 @@ torch.manual_seed(42)
 
 # %%
 def make(config):  
-    model = nn.DataParallel(STLSTM(1,config['hidden_size'])).to(device)
-            
+    #model = nn.DataParallel(STLSTM(1,config['hidden_size'])).to(device)
+    model = nn.DataParallel(Conv2D()).to(device)
+        
     print(config['depths'])
     
     if config['dataset']=='regimeA':

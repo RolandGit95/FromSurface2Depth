@@ -31,12 +31,12 @@ class Conv2D(nn.Module):
                                   nn.Sigmoid())
 
         
-    def forward(self, input):
+    def forward(self, input, max_depth=32):
         output = input[:,:,0]
         output = self.first(output)
         output = self.middle(output)
         output = self.last(output)
-        return output
+        return output.unsqueeze(1)
         
         
 class Encoder(nn.Module):
