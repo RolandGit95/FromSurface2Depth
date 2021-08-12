@@ -4,6 +4,7 @@ sys.path.append('../src')
 #sys.path.append(os.path.join(os.path.dirname(__file__)))
 
 import math 
+import timm
 
 import torch
 import torch.nn as nn
@@ -13,6 +14,23 @@ import matplotlib.pyplot as plt
 
 from omegaconf import OmegaConf
 # %%
+
+
+class EffNet(nn.Module):
+    def __init__(self, input_length=32, output_length=32, name='3D Convolutional NN'):
+        super(EffNet, self).__init__()      
+        
+        net = timm.create_model('efficientnet_b1', pretrained=True, in_chans=32)
+        
+        self.model = nn.Sequential(*list(net.children())[:-6])
+
+        
+    def forward(self, input, max_depth=32):
+        output = input[:,:,0]
+        output = self.model(output)
+        return output
+
+
 class Conv2D(nn.Module):
     def __init__(self, input_length=32, output_length=32, name='3D Convolutional NN'):
         super(Conv2D, self).__init__()            
