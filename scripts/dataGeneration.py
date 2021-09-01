@@ -223,7 +223,7 @@ def simulation(args, seeds=(0,1), sim_num=0):
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Training of Neural Networks, the Barkley Diver')
     parser.add_argument('-metadata', '--metadata', type=str, help='Main folder structure', default='../metadata.yaml')
-    parser.add_argument('-config', '--config', type=str)
+    parser.add_argument('-config', '--config', type=str, default='../config/simulation/regimeA.yaml')
     
     _args = parser.parse_args()
     args = vars(_args)

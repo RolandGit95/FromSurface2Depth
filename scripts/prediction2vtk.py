@@ -5,7 +5,8 @@ import torch
 import torch.nn as nn
 
 from omegaconf import OmegaConf
-import os,sys,inspect, yaml
+import os, sys, inspect, yaml
+
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir) 
@@ -18,9 +19,9 @@ print('Found', torch.cuda.device_count(), 'GPUs')
 
 cfg = dict(model_file='/home/roland/Projekte/FromSurface2Depth/models/regimeA/STLSTM_t32_d32',
            source_folder="../data/raw/regimeA",
-           name = '188040_843316',
+           name = '656492_27189',
            vtk_folder = "../data/visualization/regimeA",
-           depth=120,
+           depth=32,
            time_steps=32)
 cfg = OmegaConf.create(cfg)
 
