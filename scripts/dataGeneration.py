@@ -204,7 +204,7 @@ def get_starting_condition_two_spirals(args, seeds=[0,1]):
 # %%
 def simulation(args, seeds=(0,1), sim_num=0):    
     if args['starting_condition']=='two_spirals':
-        U, V = get_starting_condition_two_spirals(args)
+        U, V = get_starting_condition_two_spirals(args, seeds=seeds)
     elif args['starting_condition']=='chaotic':
         U, V = get_starting_condition_chaotic(args)
     
