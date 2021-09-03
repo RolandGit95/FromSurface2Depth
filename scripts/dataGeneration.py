@@ -149,7 +149,8 @@ def get_starting_condition_chaotic(args, seed=42):
         
 def get_starting_condition_two_spirals(args, seeds=[0,1]):
     def getRotatedSpiral(size=(60,60,60), seed=None):
-        np.random.seed(seed)
+        np.random.seed(seed=seed)
+        print(seed)
 
         rot_size = np.array(size)*5
         u, v = np.zeros((2, *rot_size))
@@ -256,6 +257,7 @@ if __name__=='__main__':
     seeds = np.random.randint(0,1000000, size=(args['num_sims'],2))
     
     for i, (s1, s2) in enumerate(seeds):
+        print(s1,s2)
         U = simulation(args, seeds=(s1,s2), sim_num=i)
 
 

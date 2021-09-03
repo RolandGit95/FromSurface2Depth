@@ -31,9 +31,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print('Found', torch.cuda.device_count(), 'GPUs')
 
 # %%
-fileX ='/home/roland/Projekte/FromSurface2Depth/data/processed/regimeB/X_test.npy'
-fileY = '/home/roland/Projekte/FromSurface2Depth/data/processed/regimeB/Y_test.npy'
-fileSTLSTM = '/home/roland/Projekte/FromSurface2Depth/scripts/plots/STLSTM_t32_d0-32,1'
+fileX ='/home/roland/Projekte/FromSurface2Depth/data/processed/regimeA/X_test.npy'
+fileY = '/home/roland/Projekte/FromSurface2Depth/data/processed/regimeA/Y_test.npy'
+fileSTLSTM = '/home/roland/Projekte/FromSurface2Depth/models/regimeA/STLSTM_t32_d32'
 
     
 # %%

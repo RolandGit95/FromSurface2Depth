@@ -40,11 +40,13 @@ for file in tqdm(files):
             _d = np.reshape(_d, (120,-1)).T[np.random.randint(0,120**2,100)]
         
             for __d in _d:
-                fft = np.abs(np.real(np.fft.fft(__d)))[inds]
+                fft = np.abs(np.fft.fft(__d))[inds] ## abs
                 _FFTS.append(fft)
     
 FFTS_A = np.mean(np.array(_FFTS), axis=0)
 
+
+# %%
 
 _FFTS = []
 dir_raw ='/home/roland/Projekte/FromSurface2Depth/data/visualization/regimeB/longterm'
@@ -61,7 +63,7 @@ for file in tqdm(files):
             _d = np.reshape(_d, (120,-1)).T[np.random.randint(0,120**2,100)]
         
             for __d in _d:
-                fft = np.abs(np.real(np.fft.fft(__d)))[inds]
+                fft = np.abs(np.fft.fft(__d))[inds]
                 _FFTS.append(fft)
     
 FFTS_B = np.mean(np.array(_FFTS), axis=0)
@@ -71,12 +73,12 @@ FFTS_B = np.mean(np.array(_FFTS), axis=0)
 mpl.rcParams['mathtext.fontset'] = 'stix'
 mpl.rcParams['font.family'] = 'STIXGeneral'
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(4,2), sharey=True)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(4,0.8), sharey=True)
 
 plt.subplots_adjust(left=0.0, right=1.0, top=0.95, bottom=0.01)
 
 ax1.plot(freq, FFTS_A)
-ax1.set_ylabel(r'Intensity')
+ax1.set_ylabel(r'Amplitude')
 ax1.set_xlabel(r'Frequency [$\Delta s^{-1}]$')
 ax1.set_title('Regime A')
 
@@ -87,13 +89,14 @@ ax1.legend()
 ax2.plot(freq, FFTS_B)
 ax2.set_xlabel(r'Frequency [$\Delta t^{-1}]$')
 ax2.set_title('Regime B')
+ax2.set_yscale('log')
 
 #maximum = freq[np.where(FFTS_B==max(FFTS_B))[0][0]]
 #ax2.axvline(x=maximum, color='b', alpha=0.5, label=f'Max. at {np.round(maximum,4)}/$\Delta s$, $L_c=${np.round(1/maximum, 2)}$\cdot\Delta s$')
 #ax2.legend()
 
-plt.yticks([])
-tikzplotlib.save('characteristic_length.tex')
+#plt.yticks([])
+tikzplotlib.save('characteristic_length.tex', axis_height='5cm', axis_width='9cm')
 
 # %%
 
@@ -113,10 +116,10 @@ files = glob.glob(os.path.join(dir_raw, "*.npy"))
 
 for file in tqdm(files):
     data = np.load(file)
-    data = np.reshape(data, (512,-1)).T[np.random.randint(0,120**3,1000)]
+    data = np.reshape(data, (512,-1)).T[np.random.randint(0,120**3,10000)]
     
     for d in data:
-        fft = np.abs(np.real(np.fft.fft(d)))[inds]
+        fft = np.abs(np.abs(np.fft.fft(d)))[inds]
         _FFTS.append(fft)
     
 FFTS_A = np.mean(np.array(_FFTS), axis=0)
@@ -128,10 +131,10 @@ files = glob.glob(os.path.join(dir_raw, "*.npy"))
 
 for file in tqdm(files):
     data = np.load(file)
-    data = np.reshape(data, (512,-1)).T[np.random.randint(0,120**3,1000)]
+    data = np.reshape(data, (512,-1)).T[np.random.randint(0,120**3,10000)]
     
     for d in data:
-        fft = np.abs(np.real(np.fft.fft(d)))[inds]
+        fft = np.abs(np.abs(np.fft.fft(d)))[inds]
         _FFTS.append(fft)
     
 FFTS_B = np.mean(np.array(_FFTS), axis=0)
@@ -141,12 +144,12 @@ FFTS_B = np.mean(np.array(_FFTS), axis=0)
 mpl.rcParams['mathtext.fontset'] = 'stix'
 mpl.rcParams['font.family'] = 'STIXGeneral'
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(4,2), sharey=True)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(4,0.8), sharey=True)
 
 plt.subplots_adjust(left=0.0, right=1.0, top=0.95, bottom=0.01)
 
 ax1.plot(freq, FFTS_A)
-ax1.set_ylabel(r'Intensity')
+ax1.set_ylabel(r'Amplitude')
 ax1.set_xlabel(r'Frequency [$\Delta t^{-1}]$')
 ax1.set_title('Regime A')
 
@@ -157,25 +160,14 @@ ax1.legend()
 ax2.plot(freq, FFTS_B)
 ax2.set_xlabel(r'Frequency [$\Delta t^{-1}]$')
 ax2.set_title('Regime B')
+ax2.set_yscale('log')
 
 maximum = freq[np.where(FFTS_B==max(FFTS_B))[0][0]]
 ax2.axvline(x=maximum, color='b', alpha=0.5, label=f'Max. at {np.round(maximum,4)}/$\Delta t$, $T_c=${int(1/maximum)}$\cdot\Delta t$')
 ax2.legend()
 
-plt.yticks([])
-tikzplotlib.save('characteristic_time.tex')
-
-
-
-
-
-
-
-
-
-
-
-
+#plt.yticks([])
+tikzplotlib.save('characteristic_time.tex', axis_height='5cm', axis_width='9cm')
 
 
 
