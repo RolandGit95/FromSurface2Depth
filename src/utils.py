@@ -18,7 +18,7 @@ def getModel(model_architecture, model_file, device, strict=True):
 
 @torch.no_grad()
 def getYTruePredPairs(model, dataset, device, time_steps=np.arange(0,32,1), depths=np.arange(0,32,1)):
-    dataloader = DataLoader(dataset, batch_size=32, drop_last=True, shuffle=False)
+    dataloader = DataLoader(dataset, batch_size=8, drop_last=True, shuffle=False)
     
     y_trues, y_preds = [], []
     for i, (X,y) in tqdm(enumerate(dataloader), total=len(dataloader)):

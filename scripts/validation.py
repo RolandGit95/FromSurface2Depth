@@ -48,7 +48,11 @@ def mae_b(img1, img2):
     return mae(img1.reshape((-1,)), img2.reshape((-1,)))
 
 
+# %%
 
+mae_file = '/home/roland/Projekte/FromSurface2Depth/data/validation/mae_regimeA.npy'
+
+mae = np.load(mae_file)
 
 
 # %%
